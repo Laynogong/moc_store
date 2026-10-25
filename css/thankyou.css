@@ -1,0 +1,201 @@
+/* ===================== TOPBAR OVERRIDES ===================== */
+.tk-topbar{
+  max-width:1360px;
+  margin:0 auto;
+  padding:30px 56px 0;
+  border-bottom:none;
+}
+.tk-back{
+  color:var(--ink);
+  text-decoration:none;
+  font-family:'Work Sans', sans-serif;
+  font-size:13.5px;
+  opacity:.7;
+  transition:opacity .15s ease;
+}
+.tk-back:hover{ opacity:1; }
+
+/* ===================== STAGE ===================== */
+.tk-stage{
+  min-height:calc(100vh - 90px);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:flex-start;
+  padding:20px 24px 100px;
+}
+
+/* Hook the tag hangs from */
+.tk-hook{
+  width:60px;
+  margin-bottom:-2px;
+  z-index:2;
+}
+.tk-hook svg{ width:100%; height:auto; display:block; }
+
+/* ===================== THE TAG ===================== */
+.tk-tag{
+  position:relative;
+  width:min(420px, 100%);
+  background:var(--paper);
+  border:1px solid var(--ink-12);
+  border-radius:4px;
+  padding:52px 36px 40px;
+  text-align:center;
+  box-shadow:0 24px 60px rgba(33,27,23,0.14);
+  transform-origin:top center;
+  animation: tk-sway 7s ease-in-out infinite, tk-drop .6s cubic-bezier(.2,.8,.3,1) both;
+}
+
+@keyframes tk-drop{
+  from{ opacity:0; transform:translateY(-14px) rotate(0deg); }
+  to{ opacity:1; transform:translateY(0) rotate(0deg); }
+}
+@keyframes tk-sway{
+  0%, 100%{ transform:rotate(-0.6deg); }
+  50%{ transform:rotate(0.6deg); }
+}
+@media (prefers-reduced-motion: reduce){
+  .tk-tag{ animation:none; }
+}
+
+.tk-punch{
+  position:absolute;
+  top:18px;
+  left:50%;
+  transform:translateX(-50%);
+  width:14px;
+  height:14px;
+  border-radius:50%;
+  background:var(--canvas);
+  border:1.5px solid var(--ink-30);
+}
+
+.tk-eyebrow{
+  display:inline-block;
+  font-family:'Space Mono', monospace;
+  font-size:11px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--sage);
+  margin-bottom:18px;
+}
+
+.tk-title{
+  font-family:'Fraunces', serif;
+  font-weight:500;
+  font-size:32px;
+  line-height:1.18;
+  color:var(--ink);
+  margin:0 0 16px;
+}
+
+.tk-sub{
+  font-family:'Work Sans', sans-serif;
+  font-size:14px;
+  line-height:1.65;
+  color:var(--ink-55);
+  max-width:300px;
+  margin:0 auto 28px;
+}
+
+/* Perforated divider, like a ticket stub */
+.tk-divider{
+  display:flex;
+  justify-content:space-between;
+  margin:0 -36px 24px;
+  padding:0 14px;
+}
+.tk-divider span{
+  width:5px;
+  height:5px;
+  border-radius:50%;
+  background:var(--ink-12);
+}
+
+.tk-meta{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  margin:0 0 24px;
+  text-align:left;
+}
+.tk-meta > div{
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  gap:12px;
+}
+.tk-meta dt{
+  font-family:'Work Sans', sans-serif;
+  font-size:12.5px;
+  color:var(--ink-55);
+}
+.tk-meta dd{
+  margin:0;
+  font-family:'Space Mono', monospace;
+  font-size:13px;
+  color:var(--ink);
+  text-align:right;
+}
+
+.tk-total{
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  margin-bottom:32px;
+}
+.tk-total span{
+  font-family:'Work Sans', sans-serif;
+  font-size:13px;
+  color:var(--ink-55);
+}
+.tk-total strong{
+  font-family:'Fraunces', serif;
+  font-weight:600;
+  font-size:22px;
+  color:var(--clay);
+}
+
+.tk-actions{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  margin-bottom:30px;
+}
+.tk-btn{
+  display:block;
+  padding:14px 20px;
+  border-radius:4px;
+  font-family:'Work Sans', sans-serif;
+  font-size:14px;
+  font-weight:600;
+  text-decoration:none;
+  transition:background .15s ease, color .15s ease, border-color .15s ease;
+}
+.tk-btn-primary{
+  background:var(--ink);
+  color:var(--panel);
+}
+.tk-btn-primary:hover{ background:var(--clay); }
+.tk-btn-ghost{
+  background:transparent;
+  color:var(--ink);
+  border:1px solid var(--ink-12);
+}
+.tk-btn-ghost:hover{ border-color:var(--ink); }
+
+.tk-tagline{
+  display:block;
+  font-family:'Space Mono', monospace;
+  font-size:9.5px;
+  letter-spacing:.14em;
+  color:var(--ink-30);
+}
+
+@media (max-width: 480px){
+  .tk-topbar{ padding:24px 20px 0; }
+  .tk-tag{ padding:44px 24px 32px; }
+  .tk-title{ font-size:27px; }
+  .tk-divider{ margin:0 -24px 22px; }
+}
